@@ -1,15 +1,15 @@
 <div class="block block-subscribe">
     <div class="block-title">
-      <strong><span><?php echo $this->__('Perfecting your taste palette') ?></span></strong>
+      <strong><span><?php echo $this->__('Stay informed') ?></span></strong>
     </div>
     <div class="block-title">
-      <h3><?php echo $this->__('Subscribe to Invinitums Newsletter') ?></h3>
-      <p><?php echo $this->__('Be inspired by our wines , recipes , news and exciting offers directly to your email.') ?></p>
+      <h3><?php echo $this->__('Subscribe to the Newsletter') ?></h3>
+      <p><?php echo $this->__('News and exciting offers directly to your email.') ?></p>
     </div>
     <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail" onsubmit="myfunc(event)">
         <div class="block-content">
             <div class="input-box">
-               <input onfocus="this.value=''; this.removeClassName('blurred');" value="<?php echo $this->__('mail@dinmail.se') ?>" type="text" name="email" id="newsletter" title="<?php echo $this->__('Sign up for our newsletter') ?>" class="input-text required-entry validate-email" />
+               <input onfocus="this.value=''; this.removeClassName('blurred');" value="<?php echo $this->__('mail@yourmail.com') ?>" type="text" name="email" id="newsletter" title="<?php echo $this->__('Sign up for our newsletter') ?>" class="input-text required-entry validate-email" />
             </div>
             <div class="actions">
                 <button type="submit" title="<?php echo $this->__('Subscribe') ?>" class="button" onclick="myfunc(event)"><span><span><?php echo $this->__('Yes, please!') ?></span></span></button>
