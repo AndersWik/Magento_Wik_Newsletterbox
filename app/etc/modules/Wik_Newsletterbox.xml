@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<config>
+	<modules>
+		<Wik_Newsletterbox>
+			<active>true</active>
+			<codePool>community</codePool>
+		</Wik_Newsletterbox>
+	</modules>
+</config>
+
