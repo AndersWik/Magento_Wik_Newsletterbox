@@ -14,16 +14,14 @@
             <show_in_default>1</show_in_default>
             <show_in_website>1</show_in_website>
             <show_in_store>1</show_in_store>
- 
             <groups>
-                <newsletterbox_group translate="label" module="newsletterbox">
-                    <label>Newsletterbox Options</label>
+                <newsletterbox_includes translate="label" module="newsletterbox">
+                    <label>Includes</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>1000</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
- 
                     <fields>
                         <newsletterbox_onoff translate="label">
                             <label>On/Off: </label>
@@ -65,16 +63,27 @@
                             <show_in_store>1</show_in_store>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                         </newsletterbox_colorbox>
-                        <!-- newsletterbox_default translate="label">
-                            <label>Default all pages: </label>
-                            <comment>Add Newsletterbox to all pages:</comment>
-                            <frontend_type>select</frontend_type>
-                            <sort_order>93</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                        </newsletterbox_default -->
+                    </fields>
+                </newsletterbox_includes>
+                <newsletterbox_cookie translate="label" module="newsletterbox">
+                    <label>Cookie</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1001</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+
+                    </fields>
+                </newsletterbox_cookie>
+                <newsletterbox_display translate="label" module="newsletterbox">
+                    <label>Display</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1002</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
                         <newsletterbox_home translate="label">
                             <label>Homepage: </label>
                             <comment>Add Newsletterbox to home (CMS_Index_Index):</comment>
@@ -96,7 +105,7 @@
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                         </newsletterbox_success>
                     </fields>
-                </newsletterbox_group>
+                </newsletterbox_display>
             </groups>
         </newsletterbox>
     </sections>

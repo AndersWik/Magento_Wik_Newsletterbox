@@ -22,15 +22,16 @@
     </frontend>
     <default>
         <newsletterbox>
-            <newsletterbox_group>
+            <newsletterbox_includes>
                 <newsletterbox_onoff>1</newsletterbox_onoff>
                 <newsletterbox_jquery>1</newsletterbox_jquery>
                 <newsletterbox_cookie>1</newsletterbox_cookie>
                 <newsletterbox_colorbox>1</newsletterbox_colorbox>
-                <!-- newsletterbox_default>0</newsletterbox_default -->
+            </newsletterbox_includes>
+            <newsletterbox_display>
                 <newsletterbox_home>1</newsletterbox_home>
                 <newsletterbox_success>0</newsletterbox_success>
-            </newsletterbox_group>
+            </newsletterbox_display>
         </newsletterbox>
     </default>
 </config>

@@ -12,7 +12,7 @@
                <input onfocus="this.value=''; this.removeClassName('blurred');" value="<?php echo $this->__('mail@yourmail.com') ?>" type="text" name="email" id="newsletter" title="<?php echo $this->__('Sign up for our newsletter') ?>" class="input-text required-entry validate-email" />
             </div>
             <div class="actions">
-                <button type="submit" title="<?php echo $this->__('Subscribe') ?>" class="button" onclick="myfunc(event)"><span><span><?php echo $this->__('Yes, please!') ?></span></span></button>
+                <button id="newsletterboxSubmit" type="submit" title="<?php echo $this->__('Subscribe') ?>" class="button" onclick="newsletterfunc(event)"><span><span><?php echo $this->__('Yes, please!') ?></span></span></button>
             </div>
         </div>
     </form>
@@ -22,91 +22,26 @@
 		$('newsletter').addClassName('blurred');
     //]]>
 
-    function myfunc(event)
-    {
-    	var newsletterSubscriberFormDetail = new VarienForm('newsletter-form');
+    jQuery( document ).ready(function( $ ) {
+
+      function newsletterfunc(event)
+      {
+      	var newsletterSubscriberFormDetail = new VarienForm('newsletter-form');
         event.preventDefault();
-    	var form_email = $('newsletter').getValue();
-    	var params_form = $('newsletter-validate-detail');
-    	//alert(params_form);
-    	new Validation('newsletter');
-    	if(echeck(form_email))
-    	{
-    		//alert(form_email);
-    		//alert(Form.serialize($('newsletter-validate-detail')));
-    		new Ajax.Updater({ success: 'newsletter-form' }, '<?php echo $this->getUrl('newsletter/subscriber/new') ?>', {
-    			asynchronous:true, evalScripts:false,
-    			parameters: { email: form_email },
-    			onComplete:function(request, json){Element.hide('newsletter-form'); Element.hide('news-loader'); Element.show('feedback');},
-    			onLoading:function(request, json){Element.show('news-loader');},
+      	var form_email = $('newsletter').getValue();
+      	var params_form = $('newsletter-validate-detail');
 
-    		});
-        document.getElementById("newsletter-pop").className = "cd-display-none";
-    	}
-    	else
-    	{
-    		//alert(form_email);
-    		return false;
-    	}
-    }
+        new Validation('newsletter');
 
-    function echeck(str) {
+      		new Ajax.Updater({ success: 'newsletter-form' }, '<?php echo $this->getUrl('newsletter/subscriber/new') ?>', {
+      			asynchronous:true, evalScripts:false,
+      			parameters: { email: form_email },
+      			onComplete:function(request, json){Element.hide('newsletter-form'); Element.hide('news-loader'); Element.show('feedback');},
+      			onLoading:function(request, json){Element.show('news-loader');},
+      		});
+          document.getElementById("newsletter-pop").className = "cd-display-none";
+      }
 
-    	var at="@"
-    	var dot="."
-    	var lat=str.indexOf(at)
-    	var lstr=str.length
-    	var ldot=str.indexOf(dot)
-    	if (str.indexOf(at)==-1){
-    		//alert("Invalid E-mail ID")
-    		goProcedural()
-    		return false
-    	}
-
-    	if (str.indexOf(at)==-1 || str.indexOf(at)==0 || str.indexOf(at)==lstr){
-    		//alert("Invalid E-mail ID")
-    		goProcedural()
-    		return false
-    	}
-
-    	if (str.indexOf(dot)==-1 || str.indexOf(dot)==0 || str.indexOf(dot)==lstr){
-    		//alert("Invalid E-mail ID")
-    		goProcedural()
-    		return false
-    	}
-
-    	if (str.indexOf(at,(lat+1))!=-1){
-    		//alert("Invalid E-mail ID")
-    		goProcedural()
-    		return false
-    	}
-
-    	if (str.substring(lat-1,lat)==dot || str.substring(lat+1,lat+2)==dot){
-    		//alert("Invalid E-mail ID")
-    		goProcedural()
-    		return false
-    	}
-
-    	if (str.indexOf(dot,(lat+2))==-1){
-    		//alert("Invalid E-mail ID")
-    		goProcedural()
-    		return false
-    	}
-
-    	if (str.indexOf(" ")!=-1){
-    		//alert("Invalid E-mail ID")
-    		goProcedural()
-    		return false
-    	}
-
-    	return true
-    }
-
-    function goProcedural()
-    {
-    	Element.show('error-news-msg');
-    	Element.hide.delay(5, 'error-news-msg');
-    }
-
+    });
     </script>
 </div>
