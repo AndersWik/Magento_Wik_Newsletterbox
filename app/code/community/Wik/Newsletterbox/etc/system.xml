@@ -25,7 +25,7 @@
                     <fields>
                         <newsletterbox_onoff translate="label">
                             <label>On/Off: </label>
-                            <comment>Global On/Off</comment>
+                            <comment><![CDATA[Global On/Off]]></comment>
                             <frontend_type>select</frontend_type>
                             <sort_order>90</sort_order>
                             <show_in_default>1</show_in_default>
@@ -35,7 +35,7 @@
                         </newsletterbox_onoff>
                         <newsletterbox_jquery translate="label">
                             <label>Jquery: </label>
-                            <comment>Include Jquery on pages with newsletterbox</comment>
+                            <comment><![CDATA[Include Jquery on pages with newsletterbox]]></comment>
                             <frontend_type>select</frontend_type>
                             <sort_order>91</sort_order>
                             <show_in_default>1</show_in_default>
@@ -45,7 +45,7 @@
                         </newsletterbox_jquery>
                         <newsletterbox_cookie translate="label">
                             <label>Cookie: </label>
-                            <comment>Include Cookie on pages with newsletterbox</comment>
+                            <comment><![CDATA[Include Cookie on pages with newsletterbox]]></comment>
                             <frontend_type>select</frontend_type>
                             <sort_order>91</sort_order>
                             <show_in_default>1</show_in_default>
@@ -55,7 +55,7 @@
                         </newsletterbox_cookie>
                         <newsletterbox_colorbox translate="label">
                             <label>Colorbox: </label>
-                            <comment>Include Colorbox on pages with newsletterbox:</comment>
+                            <comment><![CDATA[Include Colorbox on pages with newsletterbox:]]></comment>
                             <frontend_type>select</frontend_type>
                             <sort_order>92</sort_order>
                             <show_in_default>1</show_in_default>
@@ -86,7 +86,7 @@
                     <fields>
                         <newsletterbox_home translate="label">
                             <label>Homepage: </label>
-                            <comment>Add Newsletterbox to home (CMS_Index_Index):</comment>
+                            <comment><![CDATA[Add Newsletterbox to home (CMS_Index_Index):]]></comment>
                             <frontend_type>select</frontend_type>
                             <sort_order>93</sort_order>
                             <show_in_default>1</show_in_default>
@@ -96,7 +96,7 @@
                         </newsletterbox_home>
                         <newsletterbox_success translate="label">
                             <label>Onpage-success: </label>
-                            <comment>Add Newsletterbox to Onpage Success:</comment>
+                            <comment><![CDATA[Add Newsletterbox to Onpage Success:]]></comment>
                             <frontend_type>select</frontend_type>
                             <sort_order>94</sort_order>
                             <show_in_default>1</show_in_default>
