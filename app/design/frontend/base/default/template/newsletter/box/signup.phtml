@@ -6,42 +6,61 @@
       <h3><?php echo $this->__('Subscribe to the Newsletter') ?></h3>
       <p><?php echo $this->__('News and exciting offers directly to your email.') ?></p>
     </div>
-    <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail" onsubmit="myfunc(event)">
+    <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
         <div class="block-content">
             <div class="input-box">
-               <input onfocus="this.value=''; this.removeClassName('blurred');" value="<?php echo $this->__('mail@yourmail.com') ?>" type="text" name="email" id="newsletter" title="<?php echo $this->__('Sign up for our newsletter') ?>" class="input-text required-entry validate-email" />
+
+                <input name="email" id="newsletter-box-input" title="<?php echo $this->__('Sign up for our newsletter') ?>" class="input-text required-entry validate-email" type="text">
+
             </div>
             <div class="actions">
-                <button id="newsletterboxSubmit" type="submit" title="<?php echo $this->__('Subscribe') ?>" class="button" onclick="newsletterfunc(event)"><span><span><?php echo $this->__('Yes, please!') ?></span></span></button>
+                <button id="newsletterboxSubmit" type="submit" title="<?php echo $this->__('Subscribe') ?>" class="button"><span><span><?php echo $this->__('Yes, please!') ?></span></span></button>
             </div>
         </div>
+        <span class="success" style="display:none"><?php echo $this->__('Thank you for joining!') ?></span>
+        <span class="error" style="display:none"><?php echo $this->__('Please enter valid email.') ?></span>
+        <span class="newsletter-box-loader" style="display:none"></span>
+
     </form>
     <script type="text/javascript">
     //<![CDATA[
         var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
-		$('newsletter').addClassName('blurred');
     //]]>
 
     jQuery( document ).ready(function( $ ) {
 
-      function newsletterfunc(event)
-      {
-      	var newsletterSubscriberFormDetail = new VarienForm('newsletter-form');
-        event.preventDefault();
-      	var form_email = $('newsletter').getValue();
-      	var params_form = $('newsletter-validate-detail');
+        if($.cookie('newsletterbox')!=1){
+            $.cookie('newsletterbox', '1', { expires: 7 });
+            $.colorbox({
+                inline:true,
+                href:".inline_content"
+            });
+        }
 
-        new Validation('newsletter');
+        $('#newsletterboxSubmit').click(function(event){
+            $.cookie('presed', '1', { expires: 1000 });
+            var form_email = $("#newsletter-box-input").val();
+            var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
 
-      		new Ajax.Updater({ success: 'newsletter-form' }, '<?php echo $this->getUrl('newsletter/subscriber/new') ?>', {
-      			asynchronous:true, evalScripts:false,
-      			parameters: { email: form_email },
-      			onComplete:function(request, json){Element.hide('newsletter-form'); Element.hide('news-loader'); Element.show('feedback');},
-      			onLoading:function(request, json){Element.show('news-loader');},
-      		});
-          document.getElementById("newsletter-pop").className = "cd-display-none";
-      }
+            if(form_email==="" || !pattern.test(form_email)){
+                $('.error').fadeIn(500).delay(4000).fadeOut(300);
+                return false;
+            }
 
+            $('.newsletter-box-loader').fadeIn(500);
+
+            $.ajax({
+                type: "POST",
+                url:  '<?php echo $this->getFormActionUrl() ?>',
+                data: 'email='+form_email,
+                success: function()
+                {   $('.newsletter-box-loader').fadeOut(400);
+                    $('.success').fadeIn(500).delay(4000).fadeOut(300);
+                    setTimeout($.colorbox.close, 5000);
+                }
+            });
+            return false;
+        });
     });
     </script>
 </div>

@@ -1,3 +1,12 @@
 .display-none {
 	display: none!important;
 }
+
+.newsletter-box-loader {
+	width: 30px;
+	height: 30px;
+	background-image: url("../images/loading.gif");
+	position: absolute;
+	top: 130px;
+	left: 174px;
+}
