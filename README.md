@@ -2,7 +2,7 @@
 
 Newsletter popup module. Encourage users to subscribe to your newsletter. Display a newsletter popup on the home page or checkout success page.
 
-![Screenshot](/assets/images/magento/newsletterbox/popup.png?raw=true "Newsletter popup module")
+![Screenshot](http://www.anderswik.se/assets/images/magento/newsletterbox/popup.png?raw=true "Newsletter popup module")
 
 ## Admin features
 
@@ -10,7 +10,7 @@ Newsletter popup module. Encourage users to subscribe to your newsletter. Displa
 - Homepage
 - Onpage-success
 
-![Screenshot](/assets/images/magento/newsletterbox/display.png?raw=true "Display the popup")
+![Screenshot](http://www.anderswik.se/assets/images/magento/newsletterbox/display.png?raw=true "Display the popup")
 
 #### Enable or disable the includes of libraries,
 - [jQuery][jquery]
@@ -18,7 +18,7 @@ Newsletter popup module. Encourage users to subscribe to your newsletter. Displa
 - [Colorbox][colorbox]
 - [Fontawesome][fontawesome]
 
-![Screenshot](/assets/images/magento/newsletterbox/includes.png?raw=true "Includes of libraries")
+![Screenshot](http://www.anderswik.se/assets/images/magento/newsletterbox/includes.png?raw=true "Includes of libraries")
 
 #### Add custom color,
 
@@ -27,7 +27,7 @@ Newsletter popup module. Encourage users to subscribe to your newsletter. Displa
 - Button
 - Button Text
 
-![Screenshot](/assets/images/magento/newsletterbox/style.png?raw=true "Custom color")
+![Screenshot](http://www.anderswik.se/assets/images/magento/newsletterbox/style.png?raw=true "Custom color")
 
 #### Add custom text,
 
@@ -38,7 +38,7 @@ Newsletter popup module. Encourage users to subscribe to your newsletter. Displa
 - Success text
 - Button text
 
-![Screenshot](/assets/images/magento/newsletterbox/content.png?raw=true "Custom text")
+![Screenshot](http://www.anderswik.se/assets/images/magento/newsletterbox/content.png?raw=true "Custom text")
 
 
 [jquery]:https://jquery.com
