@@ -1,25 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Newsletterbox for Magento
+ *
+ * @package     Wik_Newsletterbox
+ * @author      Anders Wik
+ * @copyright   Copyright (C) 2016 Anders Wik (http://www.anderswik.se/)
+ * @license     Open Source License (OSL v3)
+ */
+ -->
 <config>
 	<acl>
-	    <resources>
-	        <all>
-	            <title>Allow Everything</title>
-	        </all>
-	        <admin>
-	            <children>
-	                <system>
-	                    <children>
-	                        <config>
-	                            <children>
-	                                <newsletterbox>
-	                                    <title>Newsletterbox</title>
-	                                </newsletterbox>
-	                            </children>
-	                        </config>
-	                    </children>
-	                </system>
-	            </children>
-	        </admin>
-	    </resources>
+		<resources>
+			<all>
+				<title>Allow Everything</title>
+			</all>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<config>
+								<children>
+									<newsletterbox>
+										<title>Newsletterbox</title>
+									</newsletterbox>
+								</children>
+							</config>
+						</children>
+					</system>
+				</children>
+			</admin>
+		</resources>
 	</acl>
 </config>

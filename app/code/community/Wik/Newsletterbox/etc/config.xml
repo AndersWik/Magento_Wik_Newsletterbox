@@ -1,3 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Newsletterbox for Magento
+ *
+ * @package     Wik_Newsletterbox
+ * @author      Anders Wik
+ * @copyright   Copyright (C) 2016 Anders Wik (http://www.anderswik.se/)
+ * @license     Open Source License (OSL v3)
+ */
+ -->
 <config>
     <modules>
         <Wik_Newsletterbox>
@@ -5,6 +16,11 @@
         </Wik_Newsletterbox>
     </modules>
     <global>
+        <blocks>
+            <newsletterbox>
+                <class>Wik_Newsletterbox_Block</class>
+            </newsletterbox>
+        </blocks>
         <helpers>
             <newsletterbox>
                 <class>Wik_Newsletterbox_Helper</class>
@@ -15,23 +31,42 @@
         <layout>
             <updates>
                 <newsletterbox>
-                    <file>wik_newsletterbox.xml</file>
+                    <file>wik/newsletterbox.xml</file>
                 </newsletterbox>
             </updates>
         </layout>
     </frontend>
     <default>
         <newsletterbox>
-            <newsletterbox_includes>
-                <newsletterbox_onoff>1</newsletterbox_onoff>
-                <newsletterbox_jquery>1</newsletterbox_jquery>
-                <newsletterbox_cookie>1</newsletterbox_cookie>
-                <newsletterbox_colorbox>1</newsletterbox_colorbox>
-            </newsletterbox_includes>
-            <newsletterbox_display>
-                <newsletterbox_home>1</newsletterbox_home>
-                <newsletterbox_success>0</newsletterbox_success>
-            </newsletterbox_display>
+            <general>
+                <active>1</active>
+            </general>
+            <content>
+                <headline>Subscribe to the Newsletter</headline>
+                <paragraph>News and exciting offers directly to your email.</paragraph>
+                <placeholder>Sign up for our newsletter</placeholder>
+                <buttontext>Yes, please!</buttontext>
+                <success>Thank you for joining!</success>
+                <error>Please enter valid email.</error>
+            </content>
+            <includes>
+                <jquery>1</jquery>
+                <cookie>1</cookie>
+                <colorbox>1</colorbox>
+                <fontawesome>1</fontawesome>
+            </includes>
+            <display>
+                <home>1</home>
+                <success>0</success>
+            </display>
+            <style>
+                <color-background>#ffffff</color-background>
+                <color-text>#636363</color-text>
+                <color-button>#f4f4f4</color-button>
+                <color-button-hover>#636363</color-button-hover>
+                <color-button-text>#636363</color-button-text>
+                <color-button-text-hover>#f4f4f4</color-button-text-hover>
+            </style>
         </newsletterbox>
     </default>
 </config>

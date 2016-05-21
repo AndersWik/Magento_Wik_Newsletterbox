@@ -1,0 +1,39 @@
+<?php
+/**
+ * Newsletterbox for Magento
+ *
+ * @package     Wik_Newsletterbox
+ * @author      Anders Wik
+ * @copyright   Copyright (C) 2016 Anders Wik (http://www.anderswik.se/)
+ * @license     Open Source License (OSL v3)
+ */
+?>
+
+<?php if ($this->getActive()): ?>
+
+	<div class="newsletter" style="display:none">
+		<div class="inline_content">
+			<div id="newsletter-colorbox" class="" style="z-index: 9999999999999;" role="alert">
+				<div class="newsletter-colorbox-container">
+					<?php echo $this->getChildHtml('newsletter_box_subscribe'); ?>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+
+		jQuery(document).ready(function ($) {
+
+			if ($.cookie('newsletterbox')!=1) {
+				$.cookie('newsletterbox', '1', {expires: 7});
+				$.colorbox({
+					inline: true,
+					href: ".inline_content"
+				});
+			}
+		});
+
+	</script>
+
+<?php endif; ?>

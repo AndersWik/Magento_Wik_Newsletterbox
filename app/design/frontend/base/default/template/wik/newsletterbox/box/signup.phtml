@@ -1,0 +1,105 @@
+<?php
+/**
+ * Newsletterbox for Magento
+ *
+ * @package     Wik_Newsletterbox
+ * @author      Anders Wik
+ * @copyright   Copyright (C) 2016 Anders Wik (http://www.anderswik.se/)
+ * @license     Open Source License (OSL v3)
+ */
+?>
+
+<div class="block block-subscribe">
+    <div class="block-title">
+        <h3><?php echo $this->getHeadline(); ?></h3>
+
+        <p><?php echo $this->getParagraph(); ?></p>
+    </div>
+    <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
+        <div class="block-content">
+            <div class="input-box">
+                <input name="email" id="newsletter-box-input"
+                       title="<?php echo $this->__('Sign up for our newsletter') ?>"
+                       class="input-text required-entry validate-email" type="text"
+                       placeholder="<?php echo $this->getPlaceholder(); ?>">
+            </div>
+            <div class="actions">
+                <button id="newsletterboxSubmit" type="submit" title="<?php echo $this->__('Subscribe') ?>"
+                        class="button">
+                    <span><?php echo $this->getButtontext(); ?></span>
+                </button>
+            </div>
+        </div>
+        <span class="success" style="display:none"><?php echo $this->getSuccess(); ?></span>
+        <span class="error" style="display:none"><?php echo $this->getError(); ?></span>
+        <span class="newsletter-box-loader" style="display:none"></span>
+    </form>
+    <script type="text/javascript">
+        //<![CDATA[
+        var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
+        //]]>
+
+        jQuery(document).ready(function ($) {
+
+            $('#newsletterboxSubmit').click(function (event) {
+                $.cookie('presed', '1', {expires: 1000});
+                var form_email = $("#newsletter-box-input").val();
+                var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
+
+                if (form_email === "" || !pattern.test(form_email)) {
+                    $('.error').fadeIn(500).delay(4000).fadeOut(300);
+                    return false;
+                }
+
+                $('.newsletter-box-loader').fadeIn(500);
+
+                $.ajax({
+                    type: "POST",
+                    url: '<?php echo $this->getFormActionUrl() ?>',
+                    data: 'email=' + form_email,
+                    success: function () {
+                        $('.newsletter-box-loader').fadeOut(400);
+                        $('.success').fadeIn(500).delay(4000).fadeOut(300);
+                        setTimeout($.colorbox.close, 5000);
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+</div>
+
+<style type="text/css">
+
+    #cboxContent, .cboxIframe {
+        background-color: <?php echo $this->getColorBackground(); ?>;
+    }
+
+    #colorbox #cboxContent #cboxClose::before {
+        color: <?php echo $this->getColorText(); ?>;
+    }
+
+    #newsletter-colorbox .block-title p {
+        color: <?php echo $this->getColorText(); ?>;
+    }
+
+    #newsletter-colorbox .block-title h3 {
+        color: <?php echo $this->getColorText(); ?>;
+    }
+
+    .newsletter-colorbox-container #newsletter-box-input {
+        border-bottom: 1px solid <?php echo $this->getColorText(); ?>;
+        color: <?php echo $this->getColorText(); ?>;
+    }
+
+    #newsletter-colorbox .newsletter-colorbox-container .actions button {
+        background-color: <?php echo $this->getColorButton(); ?>;
+        color: <?php echo $this->getColorButtonText(); ?>;
+    }
+
+    #newsletter-colorbox .newsletter-colorbox-container .actions button:hover {
+        background-color: <?php echo $this->getColorButtonHover(); ?>;
+        color: <?php echo $this->getColorButtonTextHover(); ?>;
+    }
+
+</style>

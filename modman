@@ -1,0 +1,5 @@
+app/code/community/Wik/Newsletterbox/
+app/design/frontend/base/default/layout/wik/newsletterbox.xml
+app/design/frontend/base/default/template/wik/newsletterbox/
+app/etc/modules/Wik_Newsletterbox.xml
+skin/frontend/base/default/wik/newsletterbox/

@@ -1,40 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Newsletterbox for Magento
+ *
+ * @package     Wik_Newsletterbox
+ * @author      Anders Wik
+ * @copyright   Copyright (C) 2016 Anders Wik (http://www.anderswik.se/)
+ * @license     Open Source License (OSL v3)
+ */
+ -->
 <config>
-    <tabs>
-        <newsletterbox translate="label" module="newsletterbox">
-            <label>Newsletterbox</label>
-            <sort_order>100</sort_order>
-        </newsletterbox>
-    </tabs>
     <sections>
         <newsletterbox translate="label" module="newsletterbox">
-            <label>Options</label>
-            <tab>newsletterbox</tab>
+            <label>Newsletterbox</label>
+            <tab>customer</tab>
             <sort_order>1000</sort_order>
             <show_in_default>1</show_in_default>
             <show_in_website>1</show_in_website>
             <show_in_store>1</show_in_store>
             <groups>
-                <newsletterbox_includes translate="label" module="newsletterbox">
-                    <label>Includes</label>
+                <general translate="label" module="newsletterbox">
+                    <label>General</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>1000</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
-                        <newsletterbox_onoff translate="label">
-                            <label>On/Off: </label>
-                            <comment><![CDATA[Global On/Off]]></comment>
+                        <active translate="label">
+                            <label>Active</label>
+                            <comment><![CDATA[Add newsletterbox to pages]]></comment>
                             <frontend_type>select</frontend_type>
                             <sort_order>90</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                        </newsletterbox_onoff>
-                        <newsletterbox_jquery translate="label">
-                            <label>Jquery: </label>
+                        </active>
+                    </fields>
+                </general>
+                <style translate="label">
+                    <label><![CDATA[Style]]></label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1002</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <color-background translate="label comment">
+                            <label><![CDATA[Background Color]]></label>
+                            <comment><![CDATA[]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </color-background>
+                        <color-text translate="label comment">
+                            <label><![CDATA[Text Color]]></label>
+                            <comment><![CDATA[]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </color-text>
+                        <color-button translate="label comment">
+                            <label><![CDATA[Button Color]]></label>
+                            <comment><![CDATA[]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </color-button>
+                        <color-button-hover translate="label comment">
+                            <label><![CDATA[Button Color Hover]]></label>
+                            <comment><![CDATA[]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </color-button-hover>
+                        <color-button-text translate="label comment">
+                            <label><![CDATA[Button Color Text]]></label>
+                            <comment><![CDATA[]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </color-button-text>
+                        <color-button-text-hover translate="label comment">
+                            <label><![CDATA[Button Color Text]]></label>
+                            <comment><![CDATA[]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </color-button-text-hover>
+                    </fields>
+                </style>
+                <display translate="label" module="newsletterbox">
+                    <label>Display</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1003</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <home translate="label">
+                            <label>Homepage</label>
+                            <comment><![CDATA[Display newsletterbox on home (CMS_Index_Index)]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>93</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </home>
+                        <success translate="label">
+                            <label>Onpage-success</label>
+                            <comment><![CDATA[Display newsletterbox on Onpage Success]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>94</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </success>
+                    </fields>
+                </display>
+                <includes translate="label" module="newsletterbox">
+                    <label>Includes</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1004</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <jquery translate="label">
+                            <label>Jquery</label>
                             <comment><![CDATA[Include Jquery on pages with newsletterbox]]></comment>
                             <frontend_type>select</frontend_type>
                             <sort_order>91</sort_order>
@@ -42,9 +150,9 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                        </newsletterbox_jquery>
-                        <newsletterbox_cookie translate="label">
-                            <label>Cookie: </label>
+                        </jquery>
+                        <cookie translate="label">
+                            <label>Cookie</label>
                             <comment><![CDATA[Include Cookie on pages with newsletterbox]]></comment>
                             <frontend_type>select</frontend_type>
                             <sort_order>91</sort_order>
@@ -52,60 +160,110 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                        </newsletterbox_cookie>
-                        <newsletterbox_colorbox translate="label">
-                            <label>Colorbox: </label>
-                            <comment><![CDATA[Include Colorbox on pages with newsletterbox:]]></comment>
+                        </cookie>
+                        <fontawesome translate="label">
+                            <label>Fontawesome</label>
+                            <comment><![CDATA[Include Fontawesome on pages with newsletterbox]]></comment>
                             <frontend_type>select</frontend_type>
                             <sort_order>92</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                        </newsletterbox_colorbox>
+                        </fontawesome>
+                        <colorbox translate="label">
+                            <label>Colorbox</label>
+                            <comment><![CDATA[Include Colorbox on pages with newsletterbox]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>92</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </colorbox>
                     </fields>
-                </newsletterbox_includes>
-                <newsletterbox_cookie translate="label" module="newsletterbox">
+                </includes>
+                <cookie translate="label" module="newsletterbox">
                     <label>Cookie</label>
                     <frontend_type>text</frontend_type>
-                    <sort_order>1001</sort_order>
+                    <sort_order>1005</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
 
                     </fields>
-                </newsletterbox_cookie>
-                <newsletterbox_display translate="label" module="newsletterbox">
-                    <label>Display</label>
+                </cookie>
+                <content translate="label" module="newsletterbox">
+                    <label>Content</label>
                     <frontend_type>text</frontend_type>
-                    <sort_order>1002</sort_order>
+                    <sort_order>1006</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
-                        <newsletterbox_home translate="label">
-                            <label>Homepage: </label>
-                            <comment><![CDATA[Add Newsletterbox to home (CMS_Index_Index):]]></comment>
-                            <frontend_type>select</frontend_type>
+                        <headline translate="label">
+                            <label>Headline</label>
+                            <comment><![CDATA[The headline of the newsletterbox]]></comment>
+                            <frontend_type>text</frontend_type>
                             <sort_order>93</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                        </newsletterbox_home>
-                        <newsletterbox_success translate="label">
-                            <label>Onpage-success: </label>
-                            <comment><![CDATA[Add Newsletterbox to Onpage Success:]]></comment>
-                            <frontend_type>select</frontend_type>
+                        </headline>
+                        <paragraph translate="label">
+                            <label>Text content</label>
+                            <comment><![CDATA[The text content of the newsletterbox]]></comment>
+                            <frontend_type>text</frontend_type>
                             <sort_order>94</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
-                        </newsletterbox_success>
+                        </paragraph>
+                        <placeholder translate="label">
+                            <label>Placeholder</label>
+                            <comment><![CDATA[Placeholder text of the input field]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>95</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </placeholder>
+                        <buttontext translate="label">
+                            <label>Button text</label>
+                            <comment><![CDATA[Text of the submit button]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>96</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </buttontext>
+                        <success translate="label">
+                            <label>Success text</label>
+                            <comment><![CDATA[Text that display on successful registration]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>96</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </success>
+                        <error translate="label">
+                            <label>Error text</label>
+                            <comment><![CDATA[Text that display on invalid email]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>96</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </error>
                     </fields>
-                </newsletterbox_display>
+                </content>
             </groups>
         </newsletterbox>
     </sections>
